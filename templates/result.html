@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de Predicción de Género</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            text-align: center;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .prediction-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .badge-mujer {
+            background-color: #ff4081;
+            color: white;
+        }
+        .badge-hombre {
+            background-color: #4285f4;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resultado de la Predicción</h1>
+        
+        <!-- Imagen cargada -->
+        <img src="{{ image_url }}" alt="Imagen cargada" class="prediction-image">
+
+        <!-- Resultado de la predicción -->
+        <h2>
+            {% if prediction == "Mujer" %}
+                <span class="badge badge-mujer">Género: Mujer</span>
+            {% else %}
+                <span class="badge badge-hombre">Género: Hombre</span>
+            {% endif %}
+        </h2>
+
+        <!-- Botón para cargar una nueva imagen -->
+        <a href="/" class="btn btn-primary mt-4">Realizar otra predicción</a>
+    </div>
+</body>
+</html>
